@@ -87,19 +87,23 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
       </div>
       <div className="w-full">
         <table aria-describedby="tbl-caption">
-          <caption id="tbl-caption">Positionsübersicht</caption>
+          {/* <caption id="tbl-caption">Positionsübersicht</caption> */}
           <thead>
             <tr>
-              <th scope="col">Bezeichnung</th>
-              <th scope="col"></th>
-              <th scope="col" className="num">
+              <th className="border-b-2 border-black" scope="col">
+                Bezeichnung
+              </th>
+              <th className="border-b-2 border-black" scope="col"></th>
+              <th className="num border-b-2 border-black" scope="col">
                 Menge
               </th>
-              <th scope="col">ME</th>
-              <th scope="col" className="num">
+              <th className="border-b-2 border-black" scope="col">
+                ME
+              </th>
+              <th className="num border-b-2 border-black" scope="col">
                 Preis (EUR)
               </th>
-              <th scope="col" className="num">
+              <th className="num border-b-2 border-black" scope="col">
                 Wert (EUR)
               </th>
               <th scope="col" className="num"></th>
@@ -123,21 +127,22 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td className="num bg-gray-100">
-                <div className="flex flex-col p-2">
+                <div className="flex flex-col px-2 pt-2">
                   <p>Ihr Gesprächspartner</p>
                   <p>{invoice?.name}</p>
                 </div>
               </td>
             </tr>
             <tr>
-              <td></td>
-              <td className="num"></td>
+              <td className="num" colSpan={2}>
+                We charge you according to the service contract as follows:
+              </td>
               <td className="num"></td>
               <td></td>
               <td className="num"></td>
               <td className="num"></td>
               <td className="num bg-gray-100 ">
-                <div className="flex flex-col p-2">
+                <div className="flex flex-col px-2">
                   <p>Bürgermeister-Smidt-Straße 116</p>
                 </div>
               </td>
@@ -150,20 +155,18 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td className="num bg-gray-100">
-                <div className="flex flex-col p-2">
+                <div className="flex flex-col px-2">
                   <p>28195 Bremen</p>
                 </div>
               </td>
             </tr>
             <tr>
-              <td className="num" colSpan={2}>
-                We charge you according to the service contract as follows:
-              </td>
+              <td className="num" colSpan={2}></td>
               <td></td>
               <td></td>
               <td className="num"></td>
               <td className="num"></td>
-              <td className="num bg-gray-100 p-2">{invoice?.email}</td>
+              <td className="num bg-gray-100 px-2">{invoice?.email}</td>
             </tr>
             <tr>
               <td className="num"></td>
@@ -172,7 +175,7 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td></td>
               <td className="num"></td>
               <td className="num"></td>
-              <td className="num bg-gray-100 p-2">
+              <td className="num bg-gray-100 px-2 pb-2">
                 Tel : +49 (0)421 989 660 24
               </td>
             </tr>
@@ -194,18 +197,20 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td></td>
               <td className="num"></td>
               <td className="num"></td>
-              <td className="num bg-gray-100 p-2">Gesellschafterin4</td>
+              <td className="num bg-gray-100 px-2 pt-2">Gesellschafterin4</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <th className="num">Total net positions</th>
-              <th className="num"></th>
-              <th className="num muted"></th>
-              <th className="muted"></th>
-              <th className="num muted"></th>
-              <th className="num">{totalNet}</th>
-              <th className="num bg-gray-100 p-2">
+              <th className="num border-t-2 border-black">
+                Total net positions
+              </th>
+              <th className="num border-t-2 border-black"></th>
+              <th className="num muted border-t-2 border-black"></th>
+              <th className="muted border-t-2 border-black"></th>
+              <th className="num muted border-t-2 border-black"></th>
+              <th className="num border-t-2 border-black">{totalNet}</th>
+              <th className="num bg-gray-100 px-2">
                 M2A Facility Management GmbH
               </th>
             </tr>
@@ -216,10 +221,10 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <th className="muted"></th>
               <th className="num muted"></th>
               <th className="num">{totalTax}</th>
-              <th className="num bg-gray-100">
-                <div className="flex flex-col p-2">
-                  <p>HRB 40419</p>
-                  <p>Ust-ID DE369257816</p>
+              <th className="num relative">
+                <div className="flex flex-col pb-2 absolute top-0 right-0 w-full">
+                  <p className="bg-gray-100 w-full px-2">HRB 40419</p>
+                  <p className="bg-gray-100 w-full px-2">Ust-ID DE369257816</p>
                 </div>
               </th>
             </tr>
