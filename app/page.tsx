@@ -11,8 +11,11 @@ import ViewCard from "@/components/view-card";
 import { db } from "@/lib/db";
 import { format } from "date-fns";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const invoices = await db.invoice.findMany();
+
   return (
     <div className="w-full p-4">
       <Header />
