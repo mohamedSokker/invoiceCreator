@@ -2,7 +2,7 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   margin: 24px;
   color: var(--fg);
-  background: var(--bg);
+  background: rgb(255, 255, 255);
 }
 .table-wrap {
   max-width: 100%;
@@ -21,22 +21,25 @@ caption {
 }
 thead th {
   text-align: left;
-  background: var(--accent);
-  border-bottom: 2px solid var(--border);
+  background: rgb(255, 255, 255);
+  border-bottom: 2px solid #000000;
   padding: 0.75rem 0.75rem;
   font-size: 0.925rem;
 }
 tbody td {
   padding: 0.7rem 0.75rem;
-  border-bottom: 1px solid var(--border);
+  /* border-bottom: 1px solid var(--border); */
   vertical-align: top;
+}
+tfoot {
+  border-top: 2px solid #000000;
 }
 tfoot th,
 tfoot td {
   padding: 0.75rem 0.75rem;
-  border-top: 2px solid var(--border);
+  /* border-top: 2px solid var(--border); */
   font-weight: 700;
-  background: #fafafa;
+  /* background: rgb(255, 255, 255); */
 }
 .num {
   text-align: left;
@@ -47,9 +50,9 @@ tfoot td {
   font-weight: 400;
 }
 /* Zebra rows for readability */
-tbody tr:nth-child(even) td {
-  background: #fcfcfc;
-}
+/* tbody tr:nth-child(even) td {
+  background: rgb(255, 255, 255);
+} */
 /* Print tweaks */
 @media print {
   body {
