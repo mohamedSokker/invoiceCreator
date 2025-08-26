@@ -28,7 +28,10 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
       <div className="w-full flex flex-row justify-end items-center">
         <Image src={m2a} alt="m2a" width={150} height={150} />
       </div>
-      <div className="flex flex-col items-start justify-center mb-16">
+      <div className="flex flex-row items-start justify-start mb-4">
+        <p className="text-[10px]">{`M2A Bürgermeister-Smidt-Straße 116, 28195 Bermen`}</p>
+      </div>
+      <div className="w-full flex flex-col items-start justify-center mb-16">
         <p className="">{invoice?.recievedCompany}</p>
         <p className="">{invoice?.recievedAdress}</p>
         <p>{`${invoice?.recievedZipCode} Bremen`}</p>
