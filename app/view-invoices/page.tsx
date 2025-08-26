@@ -25,15 +25,15 @@ import type { ClickEventArgs as ToolbarClickEventArgs } from "@syncfusion/ej2-re
 import Spinner from "@/components/spinner";
 import { getInvoices } from "@/actions/getInvoices";
 
-import "@syncfusion/ej2-base/styles/material.css";
-import "@syncfusion/ej2-buttons/styles/material.css";
-import "@syncfusion/ej2-calendars/styles/material.css";
-import "@syncfusion/ej2-dropdowns/styles/material.css";
-import "@syncfusion/ej2-inputs/styles/material.css";
-import "@syncfusion/ej2-navigations/styles/material.css";
-import "@syncfusion/ej2-popups/styles/material.css";
-import "@syncfusion/ej2-splitbuttons/styles/material.css";
-import "@syncfusion/ej2-react-grids/styles/material.css";
+import "@syncfusion/ej2-base/styles/tailwind.css";
+import "@syncfusion/ej2-buttons/styles/tailwind.css";
+import "@syncfusion/ej2-calendars/styles/tailwind.css";
+import "@syncfusion/ej2-dropdowns/styles/tailwind.css";
+import "@syncfusion/ej2-inputs/styles/tailwind.css";
+import "@syncfusion/ej2-navigations/styles/tailwind.css";
+import "@syncfusion/ej2-popups/styles/tailwind.css";
+import "@syncfusion/ej2-splitbuttons/styles/tailwind.css";
+import "@syncfusion/ej2-react-grids/styles/tailwind.css";
 
 // import "@syncfusion/ej2/tailwind.css";
 
@@ -137,11 +137,11 @@ const EditTables = () => {
           filterSettings={filterOptions}
           allowResizing
           pageSettings={{ pageSize: 7 }}
-          //   rowSelected={rowsSelected}
+          rowSelected={rowsSelected}
           enableAutoFill
           ref={gridRef}
           toolbar={["ExcelExport", "PdfExport", "Search"]}
-          //   toolbarClick={toolbarClick}
+          toolbarClick={toolbarClick}
           allowExcelExport
           allowPdfExport
         >
