@@ -5,6 +5,7 @@ import Image from "next/image";
 import m2a from "../../public/m2a.png";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import Logout from "../auth/logout";
 
 const Header = () => {
   const router = useRouter();
@@ -21,6 +22,10 @@ const Header = () => {
         >
           Create New Invoice
         </Button>
+        <Button variant="outline" onClick={() => router.push("/view-invoices")}>
+          Table
+        </Button>
+        <Logout />
       </div>
     </div>
   );

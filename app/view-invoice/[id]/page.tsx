@@ -29,10 +29,15 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
         <Image src={m2a} alt="m2a" width={150} height={150} />
       </div>
       <div className="flex flex-col items-start justify-center mb-16">
+        <p className="">{invoice?.recievedCompany}</p>
+        <p className="">{invoice?.recievedAdress}</p>
+        <p>{`${invoice?.recievedZipCode} Bremen`}</p>
+      </div>
+      {/* <div className="flex flex-col items-start justify-center mb-16">
         <p className="font-bold">M2A Bürgermeister-Smidt-Straße 116, 28195</p>
         <p className="font-bold">Bremen, </p>
         <p>{invoice?.address}</p>
-      </div>
+      </div> */}
       <div className="w-full flex flex-row pr-32 justify-end items-center mb-8">
         <p className="font-bold">
           {`Bremen, den `}
@@ -166,7 +171,9 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td></td>
               <td className="num"></td>
               <td className="num"></td>
-              <td className="num bg-gray-100 px-2">{invoice?.email}</td>
+              <td className="num bg-gray-100 px-2">
+                <p className="pl-2">{`${invoice?.email}`}</p>
+              </td>
             </tr>
             <tr>
               <td className="num"></td>
@@ -176,7 +183,7 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td className="num bg-gray-100 px-2 pb-2">
-                Tel : +49 (0)421 989 660 24
+                <p className="pl-2">Tel : +49 (0)421 989 660 24</p>
               </td>
             </tr>
             {items.map((item) => (
@@ -221,10 +228,10 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <th className="muted"></th>
               <th className="num muted"></th>
               <th className="num">{totalTax}</th>
-              <th className="num relative">
-                <div className="flex flex-col pb-2 absolute top-0 right-0 w-full">
-                  <p className="bg-gray-100 w-full px-2">HRB 40419</p>
-                  <p className="bg-gray-100 w-full px-2">Ust-ID DE369257816</p>
+              <th className="num bg-gray-100">
+                <div className="flex flex-col pb-2 w-full">
+                  <p className="bg-gray-100 w-full">HRB 40419</p>
+                  <p className="bg-gray-100 w-full">Ust-ID DE369257816</p>
                 </div>
               </th>
             </tr>

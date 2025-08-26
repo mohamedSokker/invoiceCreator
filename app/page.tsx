@@ -1,4 +1,7 @@
+import { auth } from "@/auth";
+import CardActions from "@/components/card-actions";
 import Header from "@/components/header/header";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,11 +13,15 @@ import {
 import ViewCard from "@/components/view-card";
 import { db } from "@/lib/db";
 import { format } from "date-fns";
+import { Edit, Trash } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const invoices = await db.invoice.findMany();
+  const session = await auth();
+  const invoices = await db.invoice.findMany({
+    where: { userId: session?.user.id },
+  });
 
   return (
     <div className="w-full p-4">
@@ -23,7 +30,12 @@ export default async function Home() {
         {invoices.map((invoice) => (
           <Card key={invoice.id}>
             <CardHeader>
-              <CardTitle>{invoice.name}</CardTitle>
+              <CardTitle>
+                <div className="w-full flex flex-row justify-between items-center">
+                  <p>{invoice.name}</p>
+                  <CardActions id={invoice.id} />
+                </div>
+              </CardTitle>
               <CardDescription>{`Invoice Date: ${format(
                 invoice.invoiceDate,
                 "yyyy-MM-dd"

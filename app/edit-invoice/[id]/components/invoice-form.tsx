@@ -40,6 +40,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@radix-ui/react-label";
+import { invoice } from "@prisma/client";
+import { updateInvoice } from "@/actions/updateInvoice";
 
 interface Items {
   id: number;
@@ -80,7 +82,11 @@ const formSchema = z.object({
 
 type ClassFormValues = z.infer<typeof formSchema>;
 
-export const InvoiceForm = () => {
+export const InvoiceForm = ({
+  initialData,
+}: {
+  initialData: invoice | null;
+}) => {
   const [currentItem, setCurrentItem] = useState<Omit<Items, "id">>({
     name: "",
     date: "",
@@ -95,30 +101,33 @@ export const InvoiceForm = () => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = "Create Invoice";
-  const description = "Add a  new Invoice";
-  const toastMessage = "Invoice created";
-  const action = "Create";
+  const title = "Edit Invoice";
+  const description = "Edit a  new Invoice";
+  const toastMessage = "Invoice Edited";
+  const action = "Save";
 
   const form = useForm<ClassFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      address: "",
-      recievedCompany: "",
-      recievedAdress: "",
-      recievedZipCode: "",
-      den: new Date(),
-      dueDate: new Date(),
-      email: "",
-      invoiceDate: new Date(),
-      invoiceNo: "",
-      invoiceRef: "",
-      items: [],
-      Kundennummer: "",
-      objekt: "",
-      zeitraum: "",
-      taxes: 0,
+      name: initialData?.name ?? "",
+      address: initialData?.address ?? "",
+      recievedCompany: initialData?.recievedCompany ?? "",
+      recievedAdress: initialData?.recievedAdress ?? "",
+      recievedZipCode: initialData?.recievedZipCode ?? "",
+      den: initialData?.den ?? new Date(),
+      dueDate: initialData?.dueDate ?? new Date(),
+      email: initialData?.email ?? "",
+      invoiceDate: initialData?.invoiceDate ?? new Date(),
+      invoiceNo: initialData?.invoiceNo ?? "",
+      invoiceRef: initialData?.invoiceRef ?? "",
+      items:
+        initialData?.items && initialData.items !== ""
+          ? JSON.parse(initialData?.items)
+          : [],
+      Kundennummer: initialData?.Kundennummer ?? "",
+      objekt: initialData?.objekt ?? "",
+      zeitraum: initialData?.zeitraum ?? "",
+      taxes: initialData?.taxes ?? 0,
     },
   });
 
@@ -179,7 +188,7 @@ export const InvoiceForm = () => {
     try {
       setLoading(true);
 
-      await axios.post(`/api/invoice`, data);
+      await updateInvoice(data, params.id as string);
 
       router.refresh();
       router.push(`/`);
