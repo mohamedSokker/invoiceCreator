@@ -102,9 +102,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
                 Bezeichnung
               </th>
               <th className="border-b-2 border-black" scope="col"></th>
-              <th className="num border-b-2 border-black" scope="col">
-                Menge
-              </th>
               <th className="border-b-2 border-black" scope="col">
                 ME
               </th>
@@ -121,7 +118,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
             <tr>
               <td>Zeitraum:</td>
               <td className="num">{invoice?.zeitraum}</td>
-              <td className="num"></td>
               <td></td>
               <td className="num"></td>
               <td className="num"></td>
@@ -130,7 +126,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
             <tr>
               <td>Objekt:</td>
               <td className="num">{invoice?.objekt}</td>
-              <td className="num"></td>
               <td></td>
               <td className="num"></td>
               <td className="num"></td>
@@ -146,7 +141,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
                 We charge you according to the service contract as follows:
               </td>
               <td className="num"></td>
-              <td></td>
               <td className="num"></td>
               <td className="num"></td>
               <td className="num bg-gray-100 ">
@@ -157,7 +151,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
             </tr>
             <tr>
               <td></td>
-              <td className="num"></td>
               <td className="num"></td>
               <td></td>
               <td className="num"></td>
@@ -171,7 +164,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
             <tr>
               <td className="num" colSpan={2}></td>
               <td></td>
-              <td></td>
               <td className="num"></td>
               <td className="num"></td>
               <td className="num bg-gray-100 px-2">
@@ -182,7 +174,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td></td>
-              <td></td>
               <td className="num"></td>
               <td className="num"></td>
               <td className="num bg-gray-100 px-2 pb-2">
@@ -192,9 +183,8 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
             {items.map((item) => (
               <tr key={item?.id}>
                 <td className="num">{item.name}</td>
-                <td className="num">{item.date}</td>
-                <td>{item.quantity}</td>
                 <td></td>
+                <td>{item.quantity}</td>
                 <td className="num">{item.unitPrice}</td>
                 <td className="num">{item.totalPrice}</td>
                 <td className="num"></td>
@@ -203,7 +193,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
             <tr>
               <td className="num"></td>
               <td className="num"></td>
-              <td></td>
               <td></td>
               <td className="num"></td>
               <td className="num"></td>
@@ -216,7 +205,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
                 Total net positions
               </th>
               <th className="num border-t-2 border-black"></th>
-              <th className="num muted border-t-2 border-black"></th>
               <th className="muted border-t-2 border-black"></th>
               <th className="num muted border-t-2 border-black"></th>
               <th className="num border-t-2 border-black">{totalNet}</th>
@@ -227,7 +215,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
             <tr>
               <th className="num">MwSt:</th>
               <th className="num">{`${invoice?.taxes}%`}</th>
-              <th className="num muted"></th>
               <th className="muted"></th>
               <th className="num muted"></th>
               <th className="num">{totalTax}</th>
@@ -241,7 +228,6 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
             <tr>
               <th className="num">final amount</th>
               <th className="num">{``}</th>
-              <th className="num muted"></th>
               <th className="muted"></th>
               <th className="num muted"></th>
               <th className="num">{finalAmount}</th>
