@@ -1,10 +1,11 @@
+import "../lib/syncfusion-license";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 
 // import "@syncfusion/ej2/tailwind.css";
 import "./globals.css";
-import "../lib/syncfusion-license";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

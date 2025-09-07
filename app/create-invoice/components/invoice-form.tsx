@@ -237,9 +237,7 @@ export const InvoiceForm = () => {
                         mode="single"
                         selected={field.value}
                         onSelect={field.onChange}
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
+                        disabled={(date) => date < new Date("1900-01-01")}
                         captionLayout="dropdown"
                       />
                     </PopoverContent>
@@ -351,9 +349,7 @@ export const InvoiceForm = () => {
                         selected={field.value}
                         onSelect={field.onChange}
                         className="w-full"
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
+                        disabled={(date) => date < new Date("1900-01-01")}
                         captionLayout="dropdown"
                       />
                     </PopoverContent>
@@ -393,9 +389,7 @@ export const InvoiceForm = () => {
                         selected={field.value}
                         onSelect={field.onChange}
                         className="w-full"
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
+                        disabled={(date) => date < new Date("1900-01-01")}
                         captionLayout="dropdown"
                       />
                     </PopoverContent>
