@@ -110,7 +110,7 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full flex flex-1">
         <table aria-describedby="tbl-caption">
           {/* <caption id="tbl-caption">Positionsübersicht</caption> */}
           <thead>
@@ -147,10 +147,14 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td className="num ">
-                <div className="flex flex-col px-2 pt-2">
+                {/* <div className="flex flex-col px-2 pt-2">
                   <p>Ihr Gesprächspartner</p>
                   <p>{invoice?.name}</p>
-                </div>
+                  <p>Bürgermeister-Smidt-Straße 116</p>
+                  <p>28195 Bremen</p>
+                  <p className="">{`${invoice?.email}`}</p>
+                  <p className="">Tel : +49 (0)421 989 660 24</p>
+                </div> */}
               </td>
             </tr>
             <tr>
@@ -161,9 +165,17 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td className="num  ">
-                <div className="flex flex-col px-2">
+                <div className="flex flex-col px-2 pt-2">
+                  <p>Ihr Gesprächspartner</p>
+                  <p>{invoice?.name}</p>
                   <p>Bürgermeister-Smidt-Straße 116</p>
+                  <p>28195 Bremen</p>
+                  <p className="">{`${invoice?.email}`}</p>
+                  <p className="">Tel : +49 (0)421 989 660 24</p>
                 </div>
+                {/* <div className="flex flex-col px-2">
+                  <p>Bürgermeister-Smidt-Straße 116</p>
+                </div> */}
               </td>
             </tr>
             <tr>
@@ -173,9 +185,9 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td className="num ">
-                <div className="flex flex-col px-2">
+                {/* <div className="flex flex-col px-2">
                   <p>28195 Bremen</p>
-                </div>
+                </div> */}
               </td>
             </tr>
             <tr>
@@ -184,7 +196,7 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td className="num  px-2">
-                <p className="pl-2">{`${invoice?.email}`}</p>
+                {/* <p className="pl-2">{`${invoice?.email}`}</p> */}
               </td>
             </tr>
             <tr>
@@ -194,7 +206,7 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <td className="num"></td>
               <td className="num"></td>
               <td className="num px-2 pb-2">
-                <p className="pl-2">Tel : +49 (0)421 989 660 24</p>
+                {/* <p className="pl-2">Tel : +49 (0)421 989 660 24</p> */}
               </td>
             </tr>
             {items.map((item) => (
@@ -205,7 +217,18 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
                 <td>{item.quantity}</td>
                 <td className="num">{item.unitPrice}</td>
                 <td className="num">{item.totalPrice}</td>
-                <td className="num"></td>
+                <td className="num">
+                  {/* {item.id === items[items.length - 1].id && (
+                    <div className="flex flex-col px-2 pt-2">
+                      <p>Ihr Gesprächspartner</p>
+                      <p>{invoice?.name}</p>
+                      <p>Bürgermeister-Smidt-Straße 116</p>
+                      <p>28195 Bremen</p>
+                      <p className="">{`${invoice?.email}`}</p>
+                      <p className="">Tel : +49 (0)421 989 660 24</p>
+                    </div>
+                  )} */}
+                </td>
               </tr>
             ))}
             <tr>
