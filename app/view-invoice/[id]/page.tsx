@@ -4,6 +4,7 @@ import { format } from "date-fns";
 
 import m2a from "../../../public/m2a.png";
 import "./style.css";
+import { formatter } from "@/lib/utils";
 
 interface Items {
   id: number;
@@ -214,9 +215,9 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
                 <td className="num" colSpan={2}>
                   {item.name}
                 </td>
-                <td>{item.quantity}</td>
-                <td className="num">{item.unitPrice}</td>
-                <td className="num">{item.totalPrice}</td>
+                <td>{formatter.format(item.quantity)}</td>
+                <td className="num">{formatter.format(item.unitPrice)}</td>
+                <td className="num">{formatter.format(item.totalPrice)}</td>
                 <td className="num">
                   {/* {item.id === items[items.length - 1].id && (
                     <div className="flex flex-col px-2 pt-2">
@@ -250,7 +251,9 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <th className="num border-t-2 border-black"></th>
               <th className="muted border-t-2 border-black"></th>
               <th className="num muted border-t-2 border-black"></th>
-              <th className="num border-t-2 border-black">{totalNet}</th>
+              <th className="num border-t-2 border-black">
+                {formatter.format(totalNet)}
+              </th>
               <th className="num bg-gray-100 px-2 font-normal">
                 <p className="font-normal">M2A Facility Management GmbH</p>
               </th>
@@ -260,7 +263,7 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <th className="num">{}</th>
               <th className="muted"></th>
               <th className="num muted"></th>
-              <th className="num">{totalTax}</th>
+              <th className="num">{formatter.format(totalTax)}</th>
               <th className="num bg-gray-100">
                 <div className="flex flex-col pb-2 w-full">
                   <p className="bg-gray-100 w-full font-normal">HRB 40419</p>
@@ -275,7 +278,7 @@ const ViewInvoice = async ({ params }: { params: Promise<{ id: string }> }) => {
               <th className="num">{``}</th>
               <th className="muted"></th>
               <th className="num muted"></th>
-              <th className="num">{finalAmount}</th>
+              <th className="num">{formatter.format(finalAmount)}</th>
               <th className="num"></th>
             </tr>
             <tr>
